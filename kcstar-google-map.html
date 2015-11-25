@@ -1,0 +1,129 @@
+<!--
+KCStar-Styled Google Map
+created 2015-11-23
+© Copyright 2015 The Kansas City Star. All Rights Reserved.
+-->
+
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../google-map/google-map.html">
+<link rel="import" href="themes/urban-theme.html">
+
+<dom-module id="kcstar-google-map">
+  <template>
+    <style>
+      :host {
+        display: block;
+        position: relative;
+        background-color: var(--primary-background-color, #ddd);
+        -ms-flex-direction: column;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+      }
+
+      google-map {
+        -ms-flex: 1;
+        -webkit-flex: 1;
+        flex: 1;
+      }
+    </style>
+
+    <google-map id="map" 
+      map="{{map}}"
+      api-key="[[apiKey]]" 
+      latitude="[[latitude]]"
+      longitude="[[longitude]]"
+      disable-zoom="[[disableZoom]]"
+      disable-default-ui$="[[!enableUi]]"
+      zoom="[[zoom]]"
+      max-zoom="[[maxZoom]]"
+      min-zoom="[[minZoom]]">
+
+      <content select="*"></content>
+    </google-map>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'kcstar-google-map',
+
+    properties: {
+      apiKey: String,
+
+      map: {
+        type: Object,
+        notify: true
+      },
+
+      latitude: {
+        type: Number,
+        value: 39.098668
+      },
+
+      longitude: {
+        type: Number,
+        value: -94.580667
+      },
+
+      disablePan: {
+        type: Boolean,
+        value: false
+      },
+
+      disableZoom: {
+        type: Boolean,
+        value: false
+      },
+
+      enableUi: {
+        type: Boolean,
+        value: false
+      },
+
+      theme: {
+        type: String,
+        value: 'urban-theme',
+        observer: '_setTheme'
+      },
+
+      zoom: {
+        type: Number,
+        value: 10
+      },
+
+      maxZoom: {
+        type: Number
+      },
+
+      minZoom: {
+        type: Number
+      }
+    },
+
+    attached: function() {
+      this._setAdditionalMapOptions();
+    },
+
+    _setAdditionalMapOptions: function() {
+      this.$.map.additionalMapOptions = {
+        draggable: !this.disablePan
+      }
+    },
+
+    _setTheme: function(theme) {
+      var theme = document.createElement(this.theme);
+      if(theme.styles) {
+        this.$.map.styles = theme.styles;
+      } else {
+        console.warn('kcstar-google-map: theme styles not found');
+      }
+    },
+
+    get markers () {
+      return this.$.map.markers;
+    }
+  })
+</script>

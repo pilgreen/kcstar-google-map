@@ -1,0 +1,25 @@
+{
+  "name": "kcstar-google-map",
+  "homepage": "https://github.com/pilgreen/kcstar-google-map",
+  "authors": [
+    "Jay Pilgreen <jpilgreen@kcstar.com>"
+  ],
+  "description": "A wrapper for GoogleWebComponents/google-map that handles themeing and a couple additional setups for The Kansas City Star.",
+  "main": "kcstar-google-map.html",
+  "moduleType": [],
+  "keywords": [
+    "webcomponents",
+    "Polymer"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "google-map": "GoogleWebComponents/google-map#1.x"
+  }
+}
