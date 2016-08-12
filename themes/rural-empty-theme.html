@@ -1,5 +1,5 @@
 <!--
-KCStar Google Map Urban Theme
+KCStar Google Map Rural Theme
 created 2015-11-24
 © Copyright 2015 The Kansas City Star. All Rights Reserved.
 -->
@@ -8,15 +8,15 @@ created 2015-11-24
 
 <script>
   Polymer({
-    is: 'urban-theme',
+    is: 'rural-empty-theme',
 
     styles: [
       {
         "featureType": "all",
-        "elementType": "labels.text",
+        "elementType": "labels",
         "stylers": [
           {
-            "visibility": "simplified"
+            "visibility": "off"
           }
         ]
       },
@@ -39,20 +39,11 @@ created 2015-11-24
         ]
       },
       {
-        "featureType": "landscape.man_made",
-        "elementType": "all",
+        "featureType": "landscape",
+        "elementType": "geometry.fill",
         "stylers": [
           {
             "color": "#E6DAB3"
-          }
-        ]
-      },
-      {
-        "featureType": "landscape.natural",
-        "elementType": "all",
-        "stylers": [
-          {
-            "color": "#EFE9D0"
           }
         ]
       },
@@ -134,15 +125,6 @@ created 2015-11-24
           },
           {
             "lightness": 40
-          }
-        ]
-      },
-      {
-        "featureType": "water",
-        "elementType": "labels",
-        "stylers": [
-          {
-            "color": "#FFFFFF"
           }
         ]
       }

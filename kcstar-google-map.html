@@ -13,20 +13,7 @@ created 2015-11-23
     <style>
       :host {
         display: block;
-        position: relative;
-        background-color: var(--primary-background-color, #ddd);
-        -ms-flex-direction: column;
-        -webkit-flex-direction: column;
-        flex-direction: column;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-      }
-
-      google-map {
-        -ms-flex: 1;
-        -webkit-flex: 1;
-        flex: 1;
+        background-color: #ddd;
       }
     </style>
 
@@ -40,8 +27,7 @@ created 2015-11-23
       zoom="[[zoom]]"
       max-zoom="[[maxZoom]]"
       min-zoom="[[minZoom]]">
-
-      <content select="*"></content>
+        <content></content>
     </google-map>
   </template>
 </dom-module>
